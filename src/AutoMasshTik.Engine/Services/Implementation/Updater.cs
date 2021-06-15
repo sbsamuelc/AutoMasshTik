@@ -42,6 +42,10 @@ namespace AutoMasshTik.Engine.Services.Implementation
 
         static Task UpdatePackages(SshClient client, CancellationToken ct)
         {
+            ExecuteCommand(client, "/system package update set channel=long-term");
+            return Completed;
+        }
+       {
             ExecuteCommand(client, "/system package update install");
             return Completed;
         }
